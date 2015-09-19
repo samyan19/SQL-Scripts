@@ -1,0 +1,1 @@
+grant execute on xp_readerrorlog to [ReportUser]

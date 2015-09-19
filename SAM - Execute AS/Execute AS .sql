@@ -1,0 +1,12 @@
+USE [IAM_GETDataPoint_STG01]
+go
+
+EXECUTE AS USER='atdruk\jday'
+
+SELECT * 
+FROM CAMRA_ART2_STG.sys.tables
+
+
+SELECT SUSER_NAME(), USER_NAME();
+
+REVERT;

@@ -1,0 +1,1 @@
+SELECT HOST_NAME() AS HostName, SUSER_NAME() LoggedInUser

@@ -1,0 +1,1 @@
+SELECT OBJECT_NAME(object_id) FROM sys.partitions WHERE partition_id =72057594064338944

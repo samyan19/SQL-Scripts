@@ -1,0 +1,1 @@
+EXEC sys.sp_MS_marksystemobject sp_OptimizeIndexes

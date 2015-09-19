@@ -1,0 +1,1 @@
+Select ServerProperty('ComputerNamePhysicalNetBIOS')

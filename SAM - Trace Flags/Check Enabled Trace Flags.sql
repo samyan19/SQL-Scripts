@@ -1,0 +1,2 @@
+
+DBCC TRACESTATUS(-1)

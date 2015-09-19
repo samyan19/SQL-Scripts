@@ -1,0 +1,1 @@
+ALTER DATABASE oldName MODIFY NAME = newName

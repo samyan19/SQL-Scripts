@@ -1,0 +1,1 @@
+select SERVERPROPERTY('edition'),SERVERPROPERTY('productlevel'), SERVERPROPERTY('productversion')

@@ -1,0 +1,1 @@
+SELECT name,snapshot_isolation_state_desc from sys.databases 

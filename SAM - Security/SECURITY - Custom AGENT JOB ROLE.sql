@@ -1,0 +1,18 @@
+use [msdb]
+GO
+
+GRANT EXECUTE ON [dbo].[sp_add_job] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_add_jobstep] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_add_jobschedule] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_update_job] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_update_jobstep] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_update_jobschedule] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_help_job] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_help_jobstep] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_help_jobschedule] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_delete_job] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_delete_jobstep] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_delete_jobschedule] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_help_jobhistory] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_start_job] TO [User1]
+GRANT EXECUTE ON [dbo].[sp_stop_job] TO [User1]

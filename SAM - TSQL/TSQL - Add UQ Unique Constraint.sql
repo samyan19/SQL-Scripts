@@ -1,0 +1,1 @@
+ALTER TABLE ACCOUNT.ExpectationActivity ADD CONSTRAINT UQ_ExpectationActivity_ExpectationID_ActivityID UNIQUE (ExpectationID,ActivityID)

@@ -1,0 +1,1 @@
+SELECT DB_NAME(database_id) AS [Database],[file_id], [io_stall_read_ms],[io_stall_write_ms],[io_stall] FROM sys.dm_io_virtual_file_stats(NULL,NULL) order by io_stall desc

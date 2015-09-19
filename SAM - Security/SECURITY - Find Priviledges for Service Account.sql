@@ -1,0 +1,1 @@
+exec xp_cmdshell 'whoami /priv'

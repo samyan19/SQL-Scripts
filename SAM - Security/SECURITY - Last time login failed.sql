@@ -1,0 +1,1 @@
+SELECT LOGINPROPERTY('MMSAdmin', 'PasswordLastSetTime');

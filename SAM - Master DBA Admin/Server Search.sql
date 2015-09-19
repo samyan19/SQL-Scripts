@@ -1,0 +1,1 @@
+getinstance <Server_Name, sysname, Server_Name>

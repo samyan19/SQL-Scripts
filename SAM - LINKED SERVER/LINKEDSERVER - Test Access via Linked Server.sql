@@ -1,0 +1,1 @@
+exec sp_testlinkedserver @servername = [RCSTVSQLCL01\ISQL01]

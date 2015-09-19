@@ -1,0 +1,29 @@
+--last index statistics update
+SELECT name AS index_name, 
+    STATS_DATE(object_id, index_id) AS statistics_update_date
+FROM sys.indexes 
+WHERE object_id in (
+OBJECT_ID('D0030_SPX_PERIOD_PROFILED_CONSUMPTION'),
+OBJECT_ID('SETTLEMENT_CALENDAR'),
+OBJECT_ID('D0030_SP2_GSP_CORRECTION_FACTOR')
+);
+GO
+
+--last statistics update
+SELECT name AS stats_name, 
+    STATS_DATE(object_id, stats_id) AS statistics_update_date
+FROM sys.stats 
+WHERE object_id in (
+OBJECT_ID('D0030_SPX_PERIOD_PROFILED_CONSUMPTION'),
+OBJECT_ID('SETTLEMENT_CALENDAR'),
+OBJECT_ID('D0030_SP2_GSP_CORRECTION_FACTOR')
+);
+GO
+
+/*
+update STATISTICS D0030_SPX_PERIOD_PROFILED_CONSUMPTION
+GO
+update STATISTICS SETTLEMENT_CALENDAR
+go
+update STATISTICS D0030_SP2_GSP_CORRECTION_FACTOR
+*/

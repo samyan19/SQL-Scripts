@@ -1,0 +1,1 @@
+sp_msforeachdb 'use [?];exec sp_spaceused'

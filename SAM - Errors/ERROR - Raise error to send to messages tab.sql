@@ -1,0 +1,1 @@
+RAISERROR (N'Create temp tables.',0,1) WITH NOWAIT;

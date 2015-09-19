@@ -1,0 +1,2 @@
+select top 20 servername, BackupSize/1024 as CompressedBackupSizeGB, startTime,finishTime, DATEDIFF ( minute , startTime , finishTime ) as [Duration (minutes)] from dbo.LitespeedActivity
+order by StartTime desc
