@@ -3,6 +3,7 @@ An overview of CPU Performance from the zzPermon data
 
 OUTPUT
 ------
+CollectionStartDate
 countername
 MinValue
 MaxValue
@@ -13,7 +14,15 @@ PercentageAboveThreshold (percentage of data above 75% CPU utilization. If >10% 
 USE zzPerfMon
 GO
 DECLARE @CountAboveThreshold INT
-DECLARE	@TotalCount INT
+DECLARE	@TotalCount INT, 
+		@CollectionStartDate char(24)
+
+
+
+/* Min Collection Date */
+set @CollectionStartDate=(select MIN (CounterDateTime)
+from CounterData
+where CounterID=1)
 
 
 /*
@@ -37,7 +46,8 @@ SET @CountAboveThreshold=(SELECT COUNT(1) FROM #Dataset WHERE countervalue>75.0)
 
 
 /*return aggregates and results*/
-SELECT 
+SELECT
+		@CollectionStartDate AS 'CollectionStartDate', 
 		countername,
 		MIN(CounterValue) AS MinValue,
         MAX(CounterValue) AS MaxValue,
@@ -53,7 +63,4 @@ IF  EXISTS (SELECT OBJECT_ID('tempdb..#dataset'))
 
 --26:1 DATA SIZE TO MEMORY
 --28% above threshold
-
-
-
 
