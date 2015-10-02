@@ -9,6 +9,6 @@ EXEC distribution.dbo.sp_replmonitorhelpsubscription @publication_type = 0, @Pub
 
 /*
 
-
+https://msdn.microsoft.com/en-us/library/ms188073.aspx
 
 */
