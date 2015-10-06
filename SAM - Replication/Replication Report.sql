@@ -41,7 +41,7 @@ EXEC distribution.dbo.sp_replmonitorhelpsubscription @publication_type = 0, @Pub
 SELECT CASE Status
          WHEN 1 THEN 'Started'
          WHEN 2 THEN 'Succeeded'
-         WHEN 3 THEN 'In Profress'
+         WHEN 3 THEN 'In Progress'
          WHEN 4 THEN 'Idle'
          WHEN 5 THEN 'Retrying'
          WHEN 6 THEN 'Failed'
