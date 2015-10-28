@@ -1,4 +1,6 @@
 /*
+https://support.microsoft.com/en-us/kb/3066750
+
 Take transaction sequence number and commandid in error message (replication monitor) and check existence in MSrepl_errors
 */
 select *
@@ -19,3 +21,5 @@ use UAT
 GO
 select * from sysarticles where artid=48
 GO
+
+
