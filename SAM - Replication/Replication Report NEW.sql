@@ -13,6 +13,7 @@ SELECT
 	md.publisher_db,
 	ss.srvname as subscriber,
 	da.subscriber_db,
+	da.name as dist_agent_name,
 	CONVERT(CHAR(8),DATEADD(second,cur_latency,0),108) as latency,
 
 	case 
@@ -22,7 +23,7 @@ SELECT
 	case when msa.publication_type=1
 		then max(start_time) 
 		else NULL end as snap_repl_last_run_success,
-		ds.UndelivCmdsInDistDB
+		sum(ds.UndelivCmdsInDistDB) as total_undeliv
 FROM [distribution]..[MSreplication_monitordata] md 
 join MSsnapshot_agents msa on md.publication=msa.publication
 	join MSsnapshot_history h on msa.id=h.agent_id
@@ -41,8 +42,9 @@ group by
 	md.publisher_db,
 	ss.srvname,
 	da.subscriber_db,
-	ds.UndelivCmdsInDistDB
+	da.name
 order by cur_latency desc
 GO
 commit transaction;
 GO
+
