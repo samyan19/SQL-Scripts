@@ -4,3 +4,4 @@
 * Column names - *database_name*
 * Step Name - *Run agent*
 * Schedule - *Replication agent schedule*
+* Document names - *Migration_planning_v1.0*
