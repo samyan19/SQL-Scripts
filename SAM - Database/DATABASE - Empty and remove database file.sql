@@ -1,7 +1,7 @@
 /*
 Notes:
 1. you cannot remove the first file
-2. data from empty file is distributed amongst the remaining files in the file group
+2. data from empty file is distributed amongst the remaining files in the filegroup
 */
 
 
