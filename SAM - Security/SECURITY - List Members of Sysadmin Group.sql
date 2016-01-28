@@ -1,4 +1,7 @@
-/*Quick list*/
+/*list all server roles*/
+EXEC sp_helpsrvrole
+
+/*Quick list of members of server role*/
 EXEC sp_helpsrvrolemember 'sysadmin';
 
 /*To query*/
