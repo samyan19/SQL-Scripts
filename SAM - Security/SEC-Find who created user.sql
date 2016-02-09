@@ -1,3 +1,8 @@
+/*
+Check default trace. 
+This is done better through automation.
+*/
+
 USE [your_database];
 GO
 
