@@ -1,6 +1,7 @@
 /*
 Check default trace. 
 This is done better through automation.
+http://sqlblog.com/blogs/aaron_bertrand/archive/2011/02/02/who-created-that-user.aspx
 */
 
 USE [your_database];
