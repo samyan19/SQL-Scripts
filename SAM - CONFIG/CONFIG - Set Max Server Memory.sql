@@ -1,3 +1,10 @@
+/*
+
+http://sqlrus.com/2014/03/configuration-validation-max-memory/
+
+*/
+
+
 DECLARE @mem NVARCHAR(10)
 DECLARE @memOut NVARCHAR(10)
 DECLARE @totalOSReserve INT
