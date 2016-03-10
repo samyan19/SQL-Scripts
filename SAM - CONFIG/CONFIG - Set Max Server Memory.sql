@@ -1,7 +1,5 @@
 /*
-
 http://sqlrus.com/2014/03/configuration-validation-max-memory/
-
 */
 
 
@@ -54,4 +52,20 @@ SELECT (@mem/1024)+@totalOSReserve AS 'Total Physical Memory'
 	, value_in_use AS 'Current Configured Value'
 FROM sys.configurations
 WHERE name = 'max server memory (MB)'
+
+/*******UNCOMMENT IF MAX SERVER SETTING NEEDS TO BE APPLIED******************
+
+--apply max server setting to sql instance
+exec sp_configure 'show advanced options', 1;
+
+reconfigure;
+
+exec sp_configure 'max server memory (MB)', @mem;
 GO
+reconfigure;
+GO
+
+--confirm max server setting has been applied successfully
+select *
+from sys.configurations
+WHERE name = 'max server memory (MB)'
