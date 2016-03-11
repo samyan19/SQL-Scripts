@@ -1,0 +1,21 @@
+/*
+Run all SQL Scripts
+
+https://gallery.technet.microsoft.com/scriptcenter/Run-all-Sql-in-a-Folder-4dd333f1
+
+save below as RunMyScripts.cmd
+
+<cmd_name> <script_folder>
+C:\RunMyScripts.cmd C:\MyScripts
+*/
+
+@Echo Off 
+FOR /f %%i IN ('DIR *.Sql /B') do call :RunScript %%i 
+GOTO :END 
+ 
+:RunScript 
+Echo Executing Script: %1 
+SQLCMD -S YourServer\YourInstance -U YourUserName -P YourPassword -i %1 
+Echo Completed Script: %1 
+ 
+:END
