@@ -35,10 +35,12 @@ SELECT * FROM @DBuser_table --order by dbname
 Script to find Object level permission for user databases
 ********************************************************/
 
-DECLARE @Obj_sql VARCHAR(2000)
-DECLARE @Obj_table TABLE (DBName VARCHAR(200), UserName VARCHAR(250), SchemaName VARCHAR(500), ObjectName VARCHAR(500), Permission VARCHAR(200))
-SET @Obj_sql='USE ? select ''?'' as DBName,U.name as username, schema_name(O.schema_id),O.name as object,  permission_name as permission from ?.sys.database_permissions
-join ?.sys.sysusers U on grantee_principal_id = uid join ?.sys.objects O on major_id = object_id WHERE ''?'' NOT IN (''master'',''msdb'',''model'',''tempdb'') order by U.name '
+DECLARE @Obj_sql VARCHAR(max)
+DECLARE @Obj_table TABLE (DBName VARCHAR(max), UserName VARCHAR(max), SchemaName VARCHAR(max), ObjectName VARCHAR(max), Permission VARCHAR(max))
+SET @Obj_sql='select ''?'' as DBName,U.name as username, schema_name(O.schema_id),O.name as object,  permission_name as permission 
+from [?].sys.database_permissions
+join [?].sys.sysusers U on grantee_principal_id = uid 
+join [?].sys.objects O on major_id = object_id WHERE ''?'' NOT IN (''master'',''msdb'',''model'',''tempdb'') order by U.name '
 INSERT @Obj_table
 EXEC sp_msforeachdb @command1=@Obj_sql
 SELECT * FROM @Obj_table
