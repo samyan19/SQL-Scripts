@@ -1,0 +1,4 @@
+https://social.technet.microsoft.com/Forums/windowsserver/en-US/128e49e9-04dc-4d42-b44a-0eedb8544875/mounting-iso-sorry-there-was-a-problem-mounting-the-file?forum=winserver8gen
+
+check if the ISO file is flagged as sparse
+fsutil sparse queryflag <PathToYourISO>
