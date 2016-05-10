@@ -58,3 +58,6 @@ CROSS APPLY qp.query_plan.nodes('//StmtSimple') t(c)
 LEFT OUTER JOIN cQueryStats qs ON c.value('xs:hexBinary(substring(@QueryHash,3))','binary(8)') = query_hash
 WHERE c.value('@StatementId', 'float') = s.StatementId
 ORDER BY c.value('@StatementSubTreeCost', 'float') DESC, s.StatementSubTreeCost DESC
+
+IF OBJECT_ID('tempdb..#StatementSubTreeCost') IS NOT NULL
+DROP TABLE #StatementSubTreeCost ;
