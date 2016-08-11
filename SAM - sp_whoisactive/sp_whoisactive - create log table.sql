@@ -1,3 +1,5 @@
+/* https://www.brentozar.com/responder/log-sp_whoisactive-to-a-table/ */ 
+
 DECLARE @destination_table VARCHAR(4000) ;
 SET @destination_table = 'WhoIsActive' ;
 
