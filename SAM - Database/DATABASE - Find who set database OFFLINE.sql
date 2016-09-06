@@ -1,6 +1,7 @@
 /*
   http://databasebestpractices.com/changed-sql-server-database-state-offline/
-  
+
+
 1. Connect to SQL Server → open SQL Server logs and scan through the logs.
   
 Parameter Name	Usage
