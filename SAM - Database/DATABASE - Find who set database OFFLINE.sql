@@ -1,7 +1,23 @@
 /*
   http://databasebestpractices.com/changed-sql-server-database-state-offline/
   
-  1. Connect to SQL Server → open SQL Server logs and scan through the logs.
+1. Connect to SQL Server → open SQL Server logs and scan through the logs.
+  
+Parameter Name	Usage
+@ArchiveID	Extension of the file which we would like to read.
+0 = ERRORLOG/SQLAgent.out
+1 = ERRORLOG.1/SQLAgent.1  and so on
+
+@LogType	
+1 for SQL Server ERRORLOG (ERRORLOG.*)
+2 for SQL Agent Logs (SQLAgent.*)
+
+@FilterText1	First Text filter on data
+@FilterText2	Another Text filter on data. Output would be after applying both filters, if specified
+@FirstEntry	Start Date Filter on Date time in the log
+@LastEntry	End Date Filter on Date time in the log
+@SortOrder	‘asc’ or ‘desc’ for sorting the data based on time in log.
+ 
 */
 EXEC sys.sp_readerrorlog @p1 = 0, @p2 = 1, @p3 = N'OFFLINE';
 
