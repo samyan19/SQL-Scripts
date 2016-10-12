@@ -1,14 +1,17 @@
 /*
 http://www.sqlprofessionals.com/blog/sql-scripts/2014/10/06/insight-into-sql-agent-job-schedules/
 
+NOTE
+12/10/2016	Uncomment out the [js] (jobsteps) options to include the command for each jobstep
+
 */
 
 SELECT	 [JobName] = [jobs].[name]
+		--,js.command as Command
 		,[Category] = [categories].[name]
 		,[Owner] = SUSER_SNAME([jobs].[owner_sid])
 		,[Enabled] = CASE [jobs].[enabled] WHEN 1 THEN 'Yes' ELSE 'No' END
 		,[Scheduled] = CASE [schedule].[enabled] WHEN 1 THEN 'Yes' ELSE 'No' END
-		,[Description] = [jobs].[description]
 		,[Occurs] = 
 				CASE [schedule].[freq_type]
 					WHEN   1 THEN 'Once'
@@ -92,6 +95,7 @@ SELECT	 [JobName] = [jobs].[name]
 						 STUFF(STUFF(RIGHT('000000' + CONVERT(VARCHAR(8), [jobschedule].[next_run_time]), 6), 5, 0, ':'), 3, 0, ':'))
 				END
 FROM	 [msdb].[dbo].[sysjobs] AS [jobs] WITh(NOLOCK) 
+		--JOIN msdb.dbo.sysjobsteps as js with(NOLOCK) on jobs.job_id=js.job_id
 		 LEFT OUTER JOIN [msdb].[dbo].[sysjobschedules] AS [jobschedule] WITh(NOLOCK) 
 				 ON [jobs].[job_id] = [jobschedule].[job_id] 
 		 LEFT OUTER JOIN [msdb].[dbo].[sysschedules] AS [schedule] WITh(NOLOCK) 
