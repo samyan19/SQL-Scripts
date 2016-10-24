@@ -1,0 +1,8 @@
+--Convert HEX to INT
+
+SELECT CONVERT(INT, 0x139F)
+
+
+--Convert INT to HEX
+
+SELECT CONVERT(VARBINARY, 5023)
