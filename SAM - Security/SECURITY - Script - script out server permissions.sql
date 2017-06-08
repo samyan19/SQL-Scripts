@@ -1,4 +1,13 @@
-/* Generate statements to create server permissions for SQL logins, Windows Logins, and Groups */ 
+/* Generate statements to create server permissions for SQL logins, Windows Logins, and Groups
+
+Changing the Setting From The Tools Menu
+In the Options dialog box of Tools Menu, expand Query Results, 
+expand SQL Server and then select Results to Text as shown in the image below. 
+In the right side panel change the value of Maximum number of characters displayed 
+in each column to 8192. Click OK to save the changes as shown in the image below. 
+The changes will go into effect once you open a new query window.
+
+*/ 
 SET NOCOUNT ON 
 
 SELECT  'USE' + SPACE(1) + QUOTENAME('MASTER') AS '--Database Context' 
