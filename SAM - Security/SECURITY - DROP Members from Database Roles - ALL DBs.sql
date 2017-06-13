@@ -9,7 +9,7 @@ LEFT OUTER JOIN [?].sys.database_principals c ON c.principal_id=b.role_principal
 WHERE a.sid NOT IN (0x01,0x00) AND a.sid IS NOT NULL AND a.type NOT IN (''C'') AND a.is_fixed_role <> 1 AND a.name NOT LIKE ''##%'' ORDER BY Name'
 INSERT @DBuser_table
 EXEC sp_MSforeachdb @command1=@DBuser_sql
-SELECT @sql=@sql+'ALTER ROLE '+QUOTENAME(AssociatedRole)+' DROP MEMBER '+QUOTENAME(UserName)+';'
+SELECT @sql=@sql+'USE '+ QUOTENAME(DBName) + '; ALTER ROLE '+QUOTENAME(AssociatedRole)+' DROP MEMBER '+QUOTENAME(UserName)+';'
 FROM @DBuser_table --order by dbname
 where UserName='CLOSEBROTHERSGP\zSvcALMPRE' AND LoginType='WINDOWS_USER'
 AND ((DBName='master' and AssociatedRole='db_owner')
