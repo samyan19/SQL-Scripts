@@ -11,6 +11,7 @@ FROM sys.database_files'
 
 
 select 
+[Database Name],
 case 
 	when type=0 then 'ROWS'
 	when type=1 then 'LOG'
@@ -18,8 +19,8 @@ case
 	when type=3 then 'Not supported'
 	when type=4 then 'FULL-TEXT'
 end as 'Type',
-[Database Name],[File Name],[Physical Name],[Current Size MB],[Used Space MB],[Free Space MB]
+[File Name],[Physical Name],[Current Size MB],[Used Space MB],[Free Space MB]
 from @sptable
 --WHERE Type =0
 --and [Physical Name] LIKE 'F%'
-ORDER BY Type desc,[Free Space MB] desc
+ORDER BY [Database Name] asc,Type desc,[Free Space MB] desc
