@@ -27,7 +27,7 @@ while @@fetch_status =0
     end
 deallocate cLogs
    
-select * from @results
+select * from @results order by LogDate desc
  
 
 declare @logFile varchar(max)
@@ -42,5 +42,6 @@ join @results r on  t.StartTime between dateadd(ms,-150,r.logDate) and dateadd(m
                 and t.spid = substring(r.ProcessInfo,5,10) --required to enable a hash join to be used
 where t.EventClass = 164
 and EventsubClass = 1
+order by t.StartTime desc
 set statistics time off
 --Use of a temp table results in a nested loo[ join but also a spool
