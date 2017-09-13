@@ -37,6 +37,7 @@ FROM
 FROM sys.dm_os_ring_buffers
 WHERE ring_buffer_type = 'RING_BUFFER_CONNECTIVITY') as tab
 )
+--Double check the record time to see if it correlates
 SELECT dateadd(HOUR,1,c.RecordTime),m.[text],* 
 FROM connectivity_ring_buffer c 
     LEFT JOIN sys.messages m ON c.SniConsumerError = m.message_id AND m.language_id = 1033 
