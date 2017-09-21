@@ -23,6 +23,7 @@ GO
 SELECT
         Case when file_type = 'Data file' Then 'Data File Grow' Else File_Type End AS [Event Name]
 	   , database_name AS DatabaseName
+	   , dateadd(minute, datediff(minute, sysutcdatetime(), sysdatetime()), timestamp1) as LocalTimeStamp
 	   , file_names
 	   , size_change_kb
 	   , duration
@@ -35,6 +36,7 @@ FROM (
        SELECT
            n.value ('(data[@name="size_change_kb"]/value)[1]', 'int') AS size_change_kb
            , n.value ('(data[@name="database_name"]/value)[1]', 'nvarchar(50)') AS database_name
+		   ,n.value('(@timestamp)[1]', 'datetime2') as timestamp1
            , n.value ('(data[@name="duration"]/value)[1]', 'int') AS duration
            , n.value ('(data[@name="file_type"]/text)[1]','nvarchar(50)') AS file_type
            , n.value ('(action[@name="client_app_name"]/value)[1]','nvarchar(50)') AS client_app_name
@@ -46,7 +48,7 @@ FROM (
        FROM 
            (   SELECT CAST(event_data AS XML) AS event_data
                FROM sys.fn_xe_file_target_read_file(
-                   N'C:\temp\DB_file_size_changed*.xel',
+                   N'D:\DBA\DB_file_size_changed*.xel',
                    NULL,
                    NULL,
                    NULL)
