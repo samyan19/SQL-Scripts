@@ -14,6 +14,6 @@ SELECT *
  FROM ::fn_trace_gettable(@tracefile, DEFAULT) trcdata -- DEFAULT means all trace files will be read
  INNER JOIN sys.trace_events evt ON trcdata.EventClass = evt.trace_event_id
  WHERE trcdata.EventClass IN (102, 103, 104, 105, 106, 108, 109, 110, 111)
- ORDER BY trcdata.StartTime
+ ORDER BY trcdata.StartTime desc
                  --trcdata.DatabaseID
                  --trcdata.TargetLoginName
