@@ -1,1 +1,1 @@
-!!Powershell.exe -noprofile get-service -name *sql*
+!!Powershell.exe -noprofile get-service -Computername . -name *sql*
