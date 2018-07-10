@@ -1,3 +1,6 @@
+--** DISCLAIMER - add @LogToTable=Y to be sure it gets logged!! **
+
+
 --=====================================
 --Optimize indexes on all user databases
 --=====================================
@@ -11,7 +14,23 @@ EXECUTE dbo.IndexOptimize
 @FragmentationMedium = 'INDEX_REORGANIZE,INDEX_REBUILD_ONLINE,INDEX_REBUILD_OFFLINE',
 @FragmentationHigh = 'INDEX_REBUILD_ONLINE,INDEX_REBUILD_OFFLINE',
 @FragmentationLevel1 = 10,
-@FragmentationLevel2 = 30
+@FragmentationLevel2 = 30,
+@LogToTable='Y'
+
+
+--===================================
+--Optimize indexes on specific databases
+--=====================================
+use master
+go
+EXECUTE dbo.IndexOptimize
+@Databases = 'UAT_CIDA_TDM_STD,UAT_CIDA_TDM_Staging,UAT_CIDA_TDM_FSCS,UAT_CIDA_TDM_TDS',
+@FragmentationLow = NULL,
+@FragmentationMedium = 'INDEX_REORGANIZE,INDEX_REBUILD_ONLINE,INDEX_REBUILD_OFFLINE',
+@FragmentationHigh = 'INDEX_REBUILD_ONLINE,INDEX_REBUILD_OFFLINE',
+@FragmentationLevel1 = 10,
+@FragmentationLevel2 = 30,
+@LogToTable='Y'
 
 
 
