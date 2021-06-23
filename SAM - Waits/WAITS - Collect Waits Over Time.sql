@@ -1,3 +1,9 @@
+/*
+https://michaeljswart.com/2021/01/collect-wait-stats-regularly-in-order-to-report-on-them-over-time/
+
+*/
+
+
 IF NOT EXISTS (
 	SELECT *
 	FROM sys.tables
